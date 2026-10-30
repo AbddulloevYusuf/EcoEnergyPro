@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="tg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Eco</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="chrome" data-active="energy"></div>
+  <main>
+    <section>
+      <h2 data-i18n="energyTitle"></h2>
+      <div id="article" data-article="energy"></div>
+
+      <h3 data-i18n="tryTitle"></h3>
+      <p class="lead" data-i18n="energyIntro"></p>
+      <div id="actions"></div>
+
+      <div class="result">
+        <div><b id="doneCount">0</b><span data-i18n="done"></span></div>
+        <div><b id="saveKwh">0</b><span data-i18n="saveKwh"></span></div>
+        <div><b id="saveCo2">0</b><span data-i18n="saveCo2"></span></div>
+      </div>
+      <p class="note" data-i18n="note"></p>
+    </section>
+  </main>
+
+  <footer data-i18n="footer"></footer>
+
+  <script>
+    // Если в JavaScript есть ошибка, она появится красной полосой внизу страницы
+    function showError(text) {
+      var bar = document.createElement("pre");
+      bar.style.cssText = "position:fixed;left:0;right:0;bottom:0;margin:0;padding:12px;background:#ffd9d9;color:#8a0000;font:14px monospace;white-space:pre-wrap;z-index:99";
+      bar.textContent = text;
+      document.body.appendChild(bar);
+    }
+    window.addEventListener("error", function (e) {
+      showError("ERROR: " + e.message + "\nfile: " + (e.filename || "") + "  line: " + e.lineno);
+    });
+  </script>
+  <script src="script.js" onerror="showError('script.js NOT LOADED: check file name and folder')"></script>
+</body>
+</html>
